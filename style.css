@@ -1,0 +1,454 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background:
+    radial-gradient(circle at top left, #ffd6e7, transparent 35%),
+    radial-gradient(circle at bottom right, #dcd6ff, transparent 35%),
+    #fff7fb;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.screen {
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* INTRO */
+
+.intro-card {
+  width: min(500px, 95%);
+  text-align: center;
+  padding: 50px 35px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 25px 70px rgba(150,80,120,.2);
+  backdrop-filter: blur(15px);
+  animation: appear 1s ease;
+}
+
+.small {
+  font-size: 14px;
+  color: #a45b79;
+}
+
+.intro-card h1 {
+  font-family: "Short Stack", cursive;
+  font-size: 65px;
+  margin: 15px 0;
+  color: #e64d7c;
+}
+
+.intro-card p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* BUTTON */
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: .25s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.intro-card button,
+.final-card button {
+  margin-top: 20px;
+  background: #e84f7d;
+  color: white;
+  box-shadow: 0 10px 25px rgba(232,79,125,.3);
+}
+
+/* STORY */
+
+.story-card {
+  width: min(650px, 95%);
+  padding: 25px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 25px 70px rgba(120,70,110,.2);
+  text-align: center;
+  animation: appear .6s ease;
+}
+
+.photo-box {
+  width: 100%;
+  height: 430px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #f3edf1;
+  box-shadow: 0 12px 35px rgba(0,0,0,.12);
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: opacity .3s ease;
+}
+
+.counter {
+  margin-top: 15px;
+  color: #a45b79;
+  font-weight: 600;
+}
+
+.story-text {
+  padding: 10px 20px;
+}
+
+.story-text h2 {
+  font-family: "Short Stack", cursive;
+  color: #df4e7c;
+  font-size: 27px;
+}
+
+.story-text p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.music-btn {
+  background: #222;
+  color: white;
+}
+
+.next-btn {
+  background: #e84f7d;
+  color: white;
+}
+
+/* FINAL */
+
+.final-card {
+  width: min(650px, 95%);
+  padding: 40px 30px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 25px 70px rgba(120,70,110,.2);
+  text-align: center;
+  animation: appear 1s ease;
+}
+
+.final-heart {
+  font-size: 60px;
+  animation: beat 1.2s infinite;
+}
+
+.final-card h1 {
+  font-family: "Short Stack", cursive;
+  color: #df4e7c;
+  font-size: 45px;
+}
+
+.final-card p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.final-card h2 {
+  color: #d94b77;
+  line-height: 1.6;
+}
+
+.last {
+  margin-top: 25px;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 20px;
+  animation: float 6s linear forwards;
+  pointer-events: none;
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes beat {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .intro-card {
+    padding: 40px 22px;
+  }
+
+  .intro-card h1 {
+    font-size: 48px;
+  }
+
+  .photo-box {
+    height: 330px;
+  }
+
+  .story-text h2 {
+    font-size: 23px;
+  }
+
+  .story-text p {
+    font-size: 14px;
+  }
+
+  .final-card {
+    padding: 30px 20px;
+  }
+
+  .final-card h1 {
+    font-size: 38px;
+  }
+}
+/* =====================================================
+   EXTRA POLISH — OLD DESIGN KO CHANGE NAHI KARTA
+   ===================================================== */
+
+/* STORY PHOTO */
+
+.photo-box {
+  position: relative;
+  padding: 8px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(232,79,125,.15);
+  box-shadow:
+    0 15px 40px rgba(180,70,120,.18),
+    0 0 30px rgba(232,79,125,.08);
+}
+
+.photo-box img {
+  border-radius: 16px;
+  animation: photoShow .55s ease;
+}
+
+@keyframes photoShow {
+  from {
+    opacity: 0;
+    transform: scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* COUNTER */
+
+.counter {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 14px;
+  border-radius: 30px;
+  background: #fff0f5;
+  color: #d94b77;
+  font-size: 13px;
+  box-shadow: 0 5px 15px rgba(200,70,120,.10);
+}
+
+
+/* STORY TEXT */
+
+.story-text h2 {
+  margin-bottom: 8px;
+}
+
+.story-text p {
+  color: #555;
+}
+
+
+/* BUTTONS */
+
+.buttons {
+  align-items: center;
+}
+
+.music-btn,
+.next-btn {
+  transition: .3s ease;
+}
+
+.music-btn:hover {
+  background: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+.next-btn:hover {
+  box-shadow: 0 10px 25px rgba(232,79,125,.35);
+}
+
+
+/* FINAL SCREEN */
+
+#final {
+  position: relative;
+  overflow: hidden;
+}
+
+#final::before {
+  content: "❤️";
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  font-size: 28px;
+  opacity: .18;
+  animation: floatSmall 4s ease-in-out infinite;
+}
+
+#final::after {
+  content: "💗";
+  position: absolute;
+  bottom: 15%;
+  right: 12%;
+  font-size: 32px;
+  opacity: .18;
+  animation: floatSmall 5s ease-in-out infinite;
+}
+
+@keyframes floatSmall {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+
+/* FINAL CARD */
+
+.final-card {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(232,79,125,.12);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 25px 70px rgba(120,70,110,.20),
+    0 0 45px rgba(232,79,125,.08);
+}
+
+
+/* HEART */
+
+.final-heart {
+  filter: drop-shadow(0 8px 15px rgba(232,79,125,.25));
+}
+
+
+/* FINAL TITLE */
+
+.final-card h1 {
+  margin-bottom: 15px;
+}
+
+
+/* FINAL BUTTON */
+
+.final-card button {
+  transition: .3s ease;
+}
+
+.final-card button:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+
+/* LAST TEXT */
+
+.last {
+  color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .story-card {
+    width: 96%;
+    padding: 18px;
+  }
+
+  .photo-box {
+    height: 360px;
+  }
+
+  .story-text h2 {
+    font-size: 24px;
+  }
+
+  .story-text p {
+    font-size: 14px;
+  }
+
+  .final-card {
+    width: 96%;
+  }
+
+}
